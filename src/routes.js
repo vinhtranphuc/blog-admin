@@ -4,14 +4,14 @@ import { Redirect } from "react-router-dom";
 // Layout Types
 import { DefaultLayout } from "./layouts";
 
-// Route Views
-import BlogOverview from "./views/BlogOverview";
-import UserProfileLite from "./views/UserProfileLite";
-import AddNewPost from "./views/AddNewPost";
-import Errors from "./views/Errors";
-import ComponentsOverview from "./views/ComponentsOverview";
-import Tables from "./views/Tables";
-import BlogPosts from "./views/BlogPosts";
+// Route components/contents
+import BlogOverview from "./components/contents/BlogOverview";
+import UserProfileLite from "./components/contents/UserProfileLite";
+import AddNewPost from "./components/contents/AddNewPost";
+import Errors from "./components/contents/Errors";
+import ComponentsOverview from "./components/contents/ComponentsOverview";
+import Tables from "./components/contents/Tables";
+import BlogPosts from "./components/contents/BlogPosts";
 
 export default [
   {

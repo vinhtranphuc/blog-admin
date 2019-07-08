@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Row, Col, Card, CardHeader, CardBody } from "shards-react";
 
-import PageTitle from "../components/common/PageTitle";
+import PageTitle from "../../components/common/PageTitle";
 
 const Tables = () => (
   <Container fluid className="main-content-container px-4">
