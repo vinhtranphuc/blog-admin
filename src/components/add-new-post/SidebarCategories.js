@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
-import {connect} from "react-redux"
+import { connect } from "react-redux"
+import { addCategory } from '../../actions/categories';
 
 import {
   Card,
@@ -16,8 +17,10 @@ import {
 } from "shards-react";
 
 const SidebarCategories = (props) => {
+  
   debugger;
   console.log(props);
+
   return (
     <Card small className="mb-3">
       <CardHeader className="border-bottom">
@@ -26,22 +29,23 @@ const SidebarCategories = (props) => {
       <CardBody className="p-0">
         <ListGroup flush>
           <ListGroupItem className="px-3 pb-2">
-              {rops.categories.map(category => {
-                    return (
-                        <li key={category.categoryId}>
-                            <FormCheckbox className="mb-1" value="uncategorized" defaultChecked>
-                              {category.category}
-                            </FormCheckbox>
-                        </li>
-                    );
-                })}
+            {props.data.categories.map(category => {
+              return (
+                <FormCheckbox key={category.categoryId} className="mb-1" value="uncategorized" defaultChecked>
+                  {category.category}
+                </FormCheckbox>
+              );
+            })}
           </ListGroupItem>
 
           <ListGroupItem className="d-flex px-3">
             <InputGroup className="ml-auto">
               <FormInput placeholder="New category" />
-              <InputGroupAddon type="append">
-                <Button theme="white" className="px-2">
+              <InputGroupAddon type="append" value = {props.data.category?props.data.category:''}>
+                <Button theme="white" className="px-2" onClick={(category)=> {
+                    props.dispatch(addCategory(category));
+                    props.history.push('/');
+                }}>
                   <i className="material-icons">add</i>
                 </Button>
               </InputGroupAddon>
@@ -65,10 +69,10 @@ SidebarCategories.defaultProps = {
 };
 
 const mapStateToProps = (state) => {
-    console.log('components/add-new-post > mapStateToProps');
-    return {
-      categories : state
-     };
+  console.log('components/add-new-post > mapStateToProps');
+  return {
+    data: state
+  };
 }
 
 export default connect(mapStateToProps)(SidebarCategories);

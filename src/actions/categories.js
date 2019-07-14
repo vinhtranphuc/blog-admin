@@ -21,3 +21,21 @@ export const getCategories = () => {
         });
     };
 };
+
+const _addCategory = (cagegory) => ({
+    type: 'ADD_CATEGORY',
+    cagegory
+});
+
+export const addCategory = (cagegory = {
+    cagegory: ''
+}) => {
+    return (dispatch) => {
+        const cagegory = {
+            cagegory: cagegory
+        };
+        return axios.post('add-category', cagegory).then(result => {
+            dispatch(_addCategory(result.data));
+        });
+    };
+};
