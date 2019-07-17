@@ -12,7 +12,6 @@ export const getCategories = () => {
     return (dispatch) => {
         return axios.get('categories').then(result => {
             const categories = [];
-
             result.data.forEach(item => {
                 categories.push(item);
             });
@@ -22,20 +21,38 @@ export const getCategories = () => {
     };
 };
 
-const _addCategory = (cagegory) => ({
+const _addCategory = (categories) => ({
     type: 'ADD_CATEGORY',
-    cagegory
+    categories
 });
 
-export const addCategory = (cagegory = {
-    cagegory: ''
+export const addCategory = (categoryObjPrm = {
+    category: '',
+    categoryType : ''
 }) => {
     return (dispatch) => {
-        const cagegory = {
-            cagegory: cagegory
+        
+        const category = {
+            category: categoryObjPrm.category,
+            categoryType: categoryObjPrm.categoryType
         };
-        return axios.post('add-category', cagegory).then(result => {
+        return axios.post('add-category', category).then(result => {
             dispatch(_addCategory(result.data));
+        });
+    };
+};
+
+
+const _removeCategory = (categories) => ({
+    type: 'REMOVE_CATEGORY',
+    categories
+});
+
+export const removeCategory = (categoryIdPrm) => {
+    debugger
+    return (dispatch) => {
+        return axios.delete('delete-category/'+categoryIdPrm).then(result => {
+            dispatch(_removeCategory(result.data));
         });
     };
 };

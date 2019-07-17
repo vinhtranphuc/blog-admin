@@ -12,7 +12,7 @@ const store = getAppStore();
 
 const template = (
     <Provider store = {store}>
-          <App/>
+        <App/>
     </Provider>
   );
 
