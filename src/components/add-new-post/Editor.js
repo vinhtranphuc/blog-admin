@@ -1,5 +1,4 @@
 import React from "react";
-import ReactQuill from "react-quill";
 import { Card, CardBody, Form, FormInput } from "shards-react";
 
 import "react-quill/dist/quill.snow.css";
@@ -15,7 +14,6 @@ const Editor = () => (
         <FormInput size="lg" className="mb-3" placeholder="Your Post Title" />
         <CKEditor className="add-new-post__editor mb-1"
                     editor={ ClassicEditor }
-                    data="<p>Hello from CKEditor 5!</p>"
                     onInit={ editor => {
                         // You can store the "editor" and use when it is needed.
                         console.log( 'Editor is ready to use!', editor );
@@ -35,5 +33,6 @@ const Editor = () => (
     </CardBody>
   </Card>
 );
+
 
 export default Editor;

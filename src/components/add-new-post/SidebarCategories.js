@@ -25,7 +25,6 @@ class SidebarCategories extends React.Component {
     this.onCategoryChange = this.onCategoryChange.bind(this);
     this.onCategoryAdd = this.onCategoryAdd.bind(this);
     this.onCategoryRemove = this.onCategoryRemove.bind(this);
-  
   }
 
   onCategoryChange(e) {
@@ -34,10 +33,8 @@ class SidebarCategories extends React.Component {
   }
 
   onCategoryTypeChange(categoryTypePrm) {
-    debugger
     const categoryType = categoryTypePrm;
     this.setState(() => ({ categoryType: categoryType}));
-    
   }
 
   onCategoryAdd() {
@@ -71,7 +68,7 @@ class SidebarCategories extends React.Component {
                   <>
                     <Row>
                       <Col sm={9}>
-                        <FormCheckbox key={category.categoryId} className="mb-1" value="uncategorized" >
+                        <FormCheckbox key={category.categoryId} className="mb-1" value="uncategorized">
                           {category.category}
                         </FormCheckbox>
                       </Col>
